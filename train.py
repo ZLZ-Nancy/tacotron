@@ -15,7 +15,7 @@ from models import create_model
 from text import sequence_to_text
 from util import audio, infolog, plot, ValueWindow
 log = infolog.log
-
+os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1, 2, 3, 4, 5, 6, 7"
 
 def get_git_commit():
   subprocess.check_output(['git', 'diff-index', '--quiet', 'HEAD'])   # Verify client is clean
