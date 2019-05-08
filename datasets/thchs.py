@@ -24,10 +24,10 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
   futures = []
   index = 1
   alllist = os.listdir(in_dir + '/data/')
-  wavslist = [i for i in alllist if '.trn' not in i]
-  for wav in wavslist:
-    wav_path = in_dir + '/data/' + wav
-    textpath = in_dir + '/data/' + wav + '.trn'
+  textlist = [i for i in alllist if '.wav.trn' in i]
+  for text in textlist:
+    wav_path = in_dir + '/data/' + text[:-4]
+    textpath = in_dir + '/data/' + text
     with open(textpath, encoding='utf-8') as f:
       texts = f.readlines()
       text = texts[1].strip()
